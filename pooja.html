@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Open Graph / WhatsApp preview -->
+<meta property="og:title" content="Ayudha Pooja Invitation">
+<meta property="og:description" content="Join us for Ayudha Pooja & Shri Sathya Narayana Pooja at Combined Crew Lobby, Madgaon. All are cordially invited.">
+<meta property="og:image" content="https://your-username.github.io/ayudha-pooja-invite/images/loco.jpg">
+<meta property="og:url" content="https://your-username.github.io/ayudha-pooja-invite/">
+<meta property="og:type" content="website">
+
+<!-- For better mobile preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ayudha Pooja Invitation">
+<meta name="twitter:description" content="Join us for Ayudha Pooja & Shri Sathya Narayana Pooja at Combined Crew Lobby, Madgaon. All are cordially invited.">
+<meta name="twitter:image" content="https://your-username.github.io/ayudha-pooja-invite/images/loco.jpg">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ayudha Pooja Invitation</title>
+<style>
+  :root{
+    --bg:#4d1600;
+    --gold:#e6b823;
+    --gold-2:#f6d26a;
+    --accent:#c98f10;
+    --ivory:#fffaf5;
+
+    --heading-dur:7s;
+    --heading-stagger:1s;
+    --heading-init-delay:.18s;
+    --card-dur:4s;
+    --card-stagger:1.2s;
+    --image-dur:4s;
+
+    /* new: assoc card background */
+    --assoc-bg: linear-gradient(90deg, rgba(230,184,35,0.12), rgba(255,250,245,0.02));
+    --assoc-border: rgba(255,215,0,.4);
+  }
+
+  html,body{
+    margin:0;
+    height:100%;
+    background:linear-gradient(180deg,var(--bg) 0%, #491600 100%);
+    font-family:"Segoe UI",Roboto,sans-serif;
+    color:var(--ivory);
+  }
+
+  /* Mandala background */
+  svg.mandala{
+    position:fixed;
+    top:12%;
+    left:50%;
+    transform:translate(-50%,-12%);
+    width:120vmin;
+    height:120vmin;
+    opacity:.1;
+    z-index:0;
+    pointer-events:none;
+  }
+
+  .stage{position:relative;z-index:2;width:100%;overflow-y:auto;}
+  .inner{
+    max-width:1100px;
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+    padding:2vmin;
+    /* new: add top space so heading/cards aren't glued to top */
+    padding-top:6vmin;
+  }
+
+  /* Top image */
+  .top-image{
+    width:120px;
+    max-width:30vw;
+    margin:2.4vmin auto 1.4vmin; /* increased top gap */
+    border-radius:10px;
+    display:block;
+    box-shadow:0 8px 24px rgba(0,0,0,.5);
+    opacity:0;
+    transform:translateY(-60px);
+    animation:imageDown var(--image-dur) ease-out forwards;
+    animation-delay:.3s;
+  }
+  @keyframes imageDown{to{opacity:1;transform:translateY(0)}}
+
+  /* Heading */
+  .heading{display:flex;flex-direction:column;gap:.4vmin;align-items:center;margin-bottom:1.6vmin;}
+  .heading-line{
+    font-weight:900;
+    color:var(--gold);
+    text-shadow:0 6px 0 rgba(0,0,0,.45);
+    opacity:0;
+    transform:translateY(260px);
+    animation:rise var(--heading-dur) ease-out forwards;
+  }
+  .heading-line.one{font-size:clamp(24px,7.5vw,52px);animation-delay:calc(var(--heading-init-delay)+var(--heading-stagger)*0);}
+  .heading-line.two{font-size:clamp(22px,6.5vw,44px);color:var(--gold-2);animation-delay:calc(var(--heading-init-delay)+var(--heading-stagger)*1);}
+  .heading-line.three{font-size:clamp(22px,7vw,50px);animation-delay:calc(var(--heading-init-delay)+var(--heading-stagger)*2);}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+  /* Cards */
+  .card,
+  .invite,
+  .assoc-card {
+    margin:2.4vmin auto;   /* equal vertical spacing at final position */
+    max-width:700px;
+  }
+  .card{
+    background:rgba(0,0,0,.05);
+    border:1px solid rgba(255,215,0,.12);
+    border-radius:10px;
+    padding:1.6vmin 2vmin;
+    box-shadow:0 12px 28px rgba(0,0,0,.4);
+    opacity:0;
+    transform:translateY(100px);
+    animation:cardRise var(--card-dur) ease-out forwards;
+    /* made top padding relative and consistent */
+    padding-top: 10px;
+  }
+  .card.large{max-width:740px;}
+  @keyframes cardRise{to{opacity:1;transform:translateY(0)}}
+  .title{font-weight:900;color:var(--gold);font-size:clamp(18px,4vw,26px);}
+  .when{font-weight:700;font-size:clamp(16px,3.6vw,20px);margin-top:.4vmin;}
+  .where{font-weight:800;color:var(--accent);margin-top:.6vmin;
+  padding-top: 10px;
+  }
+
+  /* Invite */
+  .invite{
+    font-weight:700;
+    opacity:0;
+    transform:translateY(80px);
+    animation:cardRise 4s ease-out forwards;
+    text-align:center;
+    /* increased top padding so invite element sits further away from card above */
+    padding-top:20px;
+  }
+
+  /* Association card */
+  .assoc-card{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1vmin;
+    /* changed so it's never pure-black: warm golden translucent */
+    background: var(--assoc-bg);
+    border:2px solid var(--assoc-border);
+    border-radius:10px;
+    padding:0.8vmin 1.4vmin;
+    opacity:0;
+    transform:translateY(80px);
+    animation:cardRise var(--card-dur) ease-out forwards;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  }
+  .bottom-logo{
+    width:42px;max-width:16vw;height:auto;border-radius:6px;object-fit:contain;
+    background:rgba(255,255,255,.05);
+    padding:3px;
+  }
+  .assoc-text{font-weight:800;color:var(--gold);font-size:clamp(12px,3.2vw,16px);}
+
+  /* Mobile spacing adjustments */
+  @media(max-width:640px){
+    .card,
+    .invite{margin:3vmin auto;}  /* bigger gap for small screens */
+
+    .assoc-card{
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      width:100%;
+      max-width:none;
+      border-radius:0;
+      border-top:2px solid rgba(255,215,0,.5);
+      /* slightly stronger golden translucent on mobile for contrast */
+      background: linear-gradient(90deg, rgba(230,184,35,0.18), rgba(255,250,245,0.03));
+      padding:1vmin;
+      margin:0; /* no margin since it's fixed */
+      z-index:10;
+      box-shadow: 0 -8px 18px rgba(0,0,0,0.20);
+    }
+
+    .inner{padding-bottom:85px;} /* keeps invite just above sticky welfare card */
+  }
+</style>
+</head>
+<body>
+<svg class="mandala" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
+  <!-- Base concentric circles -->
+  <circle cx="500" cy="500" r="420" fill="none" stroke="#e6b823" stroke-width="2" opacity="0.15"/>
+  <circle cx="500" cy="500" r="340" fill="none" stroke="#f6d26a" stroke-width="2" opacity="0.12"/>
+  <circle cx="500" cy="500" r="260" fill="none" stroke="#e6b823" stroke-width="2" opacity="0.12"/>
+  <circle cx="500" cy="500" r="180" fill="none" stroke="#f6d26a" stroke-width="2" opacity="0.12"/>
+  <circle cx="500" cy="500" r="100" fill="none" stroke="#e6b823" stroke-width="2" opacity="0.12"/>
+
+  <defs>
+    <!-- large outer petal -->
+    <ellipse id="petal" cx="500" cy="140" rx="200" ry="60" fill="none" stroke="#e6b823" stroke-width="2.5"/>
+    <!-- mid petal -->
+    <ellipse id="petal-mid" cx="500" cy="260" rx="120" ry="40" fill="none" stroke="#f6d26a" stroke-width="2"/>
+  </defs>
+
+  <!-- Outer ring of 12 petals -->
+  <g opacity="0.55">
+    <use href="#petal" transform="rotate(0 500 500)"/>
+    <use href="#petal" transform="rotate(30 500 500)"/>
+    <use href="#petal" transform="rotate(60 500 500)"/>
+    <use href="#petal" transform="rotate(90 500 500)"/>
+    <use href="#petal" transform="rotate(120 500 500)"/>
+    <use href="#petal" transform="rotate(150 500 500)"/>
+    <use href="#petal" transform="rotate(180 500 500)"/>
+    <use href="#petal" transform="rotate(210 500 500)"/>
+    <use href="#petal" transform="rotate(240 500 500)"/>
+    <use href="#petal" transform="rotate(270 500 500)"/>
+    <use href="#petal" transform="rotate(300 500 500)"/>
+    <use href="#petal" transform="rotate(330 500 500)"/>
+  </g>
+
+  <!-- Mid ring of 12 smaller petals -->
+  <g opacity="0.45">
+    <use href="#petal-mid" transform="rotate(15 500 500)"/>
+    <use href="#petal-mid" transform="rotate(45 500 500)"/>
+    <use href="#petal-mid" transform="rotate(75 500 500)"/>
+    <use href="#petal-mid" transform="rotate(105 500 500)"/>
+    <use href="#petal-mid" transform="rotate(135 500 500)"/>
+    <use href="#petal-mid" transform="rotate(165 500 500)"/>
+    <use href="#petal-mid" transform="rotate(195 500 500)"/>
+    <use href="#petal-mid" transform="rotate(225 500 500)"/>
+    <use href="#petal-mid" transform="rotate(255 500 500)"/>
+    <use href="#petal-mid" transform="rotate(285 500 500)"/>
+    <use href="#petal-mid" transform="rotate(315 500 500)"/>
+    <use href="#petal-mid" transform="rotate(345 500 500)"/>
+  </g>
+</svg>
+
+  <div class="stage">
+    <div class="inner">
+      <!-- Top loco image -->
+      <img class="top-image" src="placeholder-loco.jpg" alt="WAP7 loco decorated with flowers">
+
+      <!-- Heading -->
+      <div class="heading">
+        <div class="heading-line one">Ayudha Pooja</div>
+        <div class="heading-line two">&amp;</div>
+        <div class="heading-line three">Shri Sathya Narayana Pooja</div>
+      </div>
+
+      <!-- Cards -->
+      <div class="card large" style="animation-delay:8s">
+        <div class="title">Pooja in front of</div>
+        <div class="title">10104 Mandovi Express</div>
+        <div class="when">01 October 2025, 08:00 am onwards</div>
+      </div>
+
+      <div class="card" style="animation-delay:10s">
+        <div class="title">Shri Sathya Narayana Pooja</div>
+        <div class="when">01 October 2025, 10:00 am onwards</div>
+        <div class="where">Combined Crew Lobby, Madgaon</div>
+      </div>
+
+      <div class="card" style="animation-delay:11.2s">
+        <div class="title">Maha Prasad</div>
+        <div class="when">01 October 2025, 01:00 pm onwards</div>
+        <div class="where">Community Hall, Madgaon</div>
+      </div>
+
+      <div class="invite" style="animation-delay:12.5s">
+        All are Cordially Invited to this Auspicious Occasion and receive the Blessings
+      </div>
+    </div>
+
+    <!-- Bottom association card with logo -->
+    <div class="assoc-card" style="animation-delay:13.5s">
+      <img class="bottom-logo" src="placeholder-konkan-logo.png" alt="Konkan Railway logo">
+      <div class="assoc-text">RUNNING STAFF WELFARE COMMITTEE, MADGAON</div>
+    </div>
+  </div>
+</body>
+</html>
