@@ -1,150 +1,150 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ayudha Pooja Invitation — Combined Crew Lobby, Madgaon</title>
-  <style>
-    :root{
-      --bg:#4d1600;
-      --gold:#e6b823;
-      --gold-2:#f6d26a;
-      --ivory:#fffaf5;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ayudha Pooja — Animated Cards</title>
+<style>
+  :root{
+    --bg:#4d1600;
+    --gold:#e6b823;
+    --gold-2:#f6d26a;
+    --ivory:#fffaf5;
+  }
 
-    html,body{margin:0;height:100%;background:linear-gradient(180deg,var(--bg) 0%, #491600 100%);font-family:"Segoe UI",Roboto,sans-serif;color:var(--ivory)}
+  html,body{
+    margin:0;height:100%;
+    background:linear-gradient(180deg,var(--bg) 0%, #491600 100%);
+    font-family:"Segoe UI",Roboto,sans-serif;color:var(--ivory);
+    -webkit-font-smoothing:antialiased;
+  }
 
-    .stage{position:relative;z-index:2;width:100%;min-height:100vh}
-    .inner{max-width:1100px;margin:0 auto;text-align:center;padding:6vmin 2vmin 4vmin}
+  .stage{position:relative;z-index:2;width:100%;min-height:100vh;overflow-y:auto}
+  .inner{max-width:1100px;margin:0 auto;text-align:center;padding:6vmin 2vmin 4vmin}
 
-    .top-image{width:120px;max-width:30vw;margin:2.4vmin auto 1.4vmin;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+  .top-image{width:120px;max-width:30vw;margin:2.4vmin auto 1.4vmin;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+  .heading{display:flex;flex-direction:column;gap:.4vmin;align-items:center;margin-bottom:1.2vmin}
+  .heading-line{font-weight:900;color:var(--gold);text-shadow:0 6px 0 rgba(0,0,0,.45)}
+  .heading-line.one{font-size:clamp(24px,7.5vw,52px)}
+  .heading-line.two{font-size:clamp(20px,6.5vw,44px);color:#f6d26a}
+  .heading-line.three{font-size:clamp(22px,7vw,50px)}
 
-    .heading{display:flex;flex-direction:column;gap:.4vmin;align-items:center;margin-bottom:1.2vmin}
-    .heading-line{font-weight:900;color:var(--gold);text-shadow:0 6px 0 rgba(0,0,0,.45)}
-    .heading-line.one{font-size:clamp(24px,7.5vw,52px)}
-    .heading-line.two{font-size:clamp(20px,6.5vw,44px);color:var(--gold-2)}
-    .heading-line.three{font-size:clamp(22px,7vw,50px)}
+  /* Date pill */
+  .date-pill-wrap{display:flex;justify-content:center;margin:1.0vmin auto 1.8vmin;perspective:900px}
+  .date-pill{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.44rem 1.05rem;border-radius:999px;min-width:160px;color:#3a1900;font-weight:900;line-height:1.2;text-align:center;background: linear-gradient(180deg, #ffd873 0%, #e6b823 35%, #d3a917 70%, #b28410 100%);border:1px solid rgba(255,230,150,0.12);box-shadow: 0 10px 22px rgba(0,0,0,0.55), inset 0 2px 6px rgba(0,0,0,0.25);transform: rotateX(4deg);overflow:hidden}
+  .date-pill .shine{position:absolute;top:-40%;left:-40%;width:40%;height:180%;transform:skewX(-20deg) rotate(10deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,0.85),transparent);filter:blur(8px);animation: sweep 2200ms linear infinite;mix-blend-mode:screen}
+  @keyframes sweep{0%{left:-50%;opacity:0}10%{opacity:.9}50%{left:110%;opacity:.9}90%{opacity:.6}100%{left:120%;opacity:0}}
+  .date-pill .glow{position:absolute;inset:-8px;border-radius:999px;z-index:-2;box-shadow:0 6px 20px rgba(230,184,35,0.24);opacity:0.9;animation:pulseGlow 2400ms ease-in-out infinite}
+  @keyframes pulseGlow{0%{transform:scale(1);opacity:0.9}50%{transform:scale(1.05);opacity:1}100%{transform:scale(1);opacity:0.9}}
+  .date-line1{font-size:clamp(14px,3.6vw,18px);font-weight:900}
+  .date-line2{font-size:clamp(12px,3.2vw,15px);font-weight:900;margin-top:4px}
 
-    /* ---------- DATE PILL with shine ---------- */
-    .date-pill-wrap{display:flex;justify-content:center;margin:1.0vmin auto 1.8vmin;perspective:900px}
-    .date-pill{
-      position:relative;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      padding:.44rem 1.05rem;
-      border-radius:999px;min-width:160px;
-      background: linear-gradient(180deg, #ffd873 0%, #e6b823 35%, #d3a917 70%, #b28410 100%);
-      color:#3a1900;font-weight:900;line-height:1.2;text-align:center;
-      box-shadow:0 10px 22px rgba(0,0,0,0.55);
-      overflow:hidden;
-    }
-    .date-pill::before{content:"";position:absolute;left:6px;right:6px;top:6px;bottom:6px;border-radius:999px;box-shadow:inset 0 6px 10px rgba(255,255,255,0.12), inset 0 -10px 18px rgba(0,0,0,0.22)}
-    .date-pill .shine{position:absolute;top:-40%;left:-50%;width:40%;height:180%;transform:skewX(-20deg) rotate(10deg);background:linear-gradient(90deg,transparent,var(--ivory),transparent);filter:blur(8px);animation:sweep 2200ms linear infinite}
-    @keyframes sweep{0%{left:-50%;opacity:0}10%{opacity:.9}50%{left:110%;opacity:.9}100%{left:120%;opacity:0}}
-    .date-line1{font-size:clamp(14px,3.6vw,18px)}
-    .date-line2{font-size:clamp(12px,3.2vw,15px);margin-top:4px}
+  /* ---------- CARDS: shimmer + hover, no float ---------- */
+  .card{
+    position:relative;
+    background:linear-gradient(145deg, rgba(0,0,0,0.25), rgba(255,215,0,0.05));
+    border:2px solid rgba(230,184,35,0.5);
+    border-radius:14px;
+    padding:1.2vmin 2vmin;
+    margin:2vmin auto;
+    max-width:700px;
+    box-shadow:0 10px 26px rgba(0,0,0,0.45);
+    overflow:visible;
+    transform-origin:center;
+    transition:transform .36s cubic-bezier(.2,.9,.3,1), box-shadow .36s ease, border-color .36s ease;
+    opacity:0; transform:translateY(18px);
+    animation:cardIn .6s ease-out forwards;
+  }
+  .card:nth-of-type(1){animation-delay:.32s}
+  .card:nth-of-type(2){animation-delay:.46s}
+  .card:nth-of-type(3){animation-delay:.60s}
 
-    /* ---------- STYLISH CARDS ---------- */
-    .card{
-      background:linear-gradient(145deg, rgba(0,0,0,0.3), rgba(255,215,0,0.06));
-      border:2px solid rgba(230,184,35,0.5);
-      border-radius:16px;
-      margin:2vmin auto;
-      max-width:700px;
-      box-shadow:0 8px 22px rgba(0,0,0,0.45);
-      overflow:hidden;
-      transition:transform .4s ease, box-shadow .4s ease, border-color .4s ease;
-    }
-    .card:hover{transform:translateY(-6px) scale(1.02);border-color:var(--gold);box-shadow:0 12px 32px rgba(230,184,35,0.3),0 8px 20px rgba(0,0,0,0.55)}
+  @keyframes cardIn{to{opacity:1;transform:translateY(0)}}
 
-    /* Header ribbon inside card */
-    .card-header{
-      background:linear-gradient(90deg,#e6b823,#f6d26a,#e6b823);
-      padding:0.6rem;
-      font-weight:900;
-      font-size:clamp(18px,4vw,26px);
-      color:#3a1900;
-      position:relative;
-      overflow:hidden;
-    }
-    .card-header .shine{
-      position:absolute;top:0;left:-50%;width:40%;height:100%;
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);
-      animation:sweepTitle 3000ms linear infinite;
-    }
-    @keyframes sweepTitle{0%{left:-50%}50%{left:110%}100%{left:110%}}
+  /* diagonal shimmer */
+  .card::before{
+    content:"";
+    position:absolute;
+    left:-40%;
+    top:-40%;
+    width:160%;
+    height:160%;
+    background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,0.12) 50%, transparent 65%);
+    transform:translateX(-30%) translateY(-30%);
+    filter:blur(10px);
+    opacity:1;
+    pointer-events:none;
+    animation:shimmer 3.8s linear infinite;
+    z-index:0;
+  }
+  @keyframes shimmer{
+    0%{ transform:translateX(-40%) translateY(-40%); opacity:.8 }
+    50%{ transform:translateX(40%) translateY(40%); opacity:1 }
+    100%{ transform:translateX(100%) translateY(100%); opacity:.8 }
+  }
 
-    .card-body{padding:1rem}
-    .when{font-weight:700;font-size:clamp(16px,3.6vw,20px);color:var(--ivory)}
-    .where{font-weight:800;color:var(--gold-2);margin-top:.4rem}
+  /* hover */
+  .card:hover{
+    transform: translateY(-12px) rotateX(3deg) scale(1.02);
+    box-shadow: 0 20px 44px rgba(0,0,0,0.55), 0 4px 30px rgba(230,184,35,0.18);
+    border-color: rgba(230,184,35,0.85);
+  }
+  .card:active{ transform: translateY(-6px) rotateX(1deg) scale(1.01) }
 
-    .invite{font-weight:700;margin-top:0.6rem}
+  .card > * { position:relative; z-index:2 }
 
-    .assoc-card{display:flex;align-items:center;justify-content:center;gap:1vmin;background: linear-gradient(90deg, rgba(230,184,35,0.12), rgba(255,250,245,0.02));border:2px solid rgba(255,215,0,.4);border-radius:10px;padding:0.8vmin 1.4vmin;box-shadow:0 8px 18px rgba(0,0,0,0.18)}
-    .bottom-logo{width:42px;max-width:16vw;height:auto;border-radius:6px;object-fit:contain;background:rgba(255,255,255,.05);padding:3px}
-    .assoc-text{font-weight:800;color:var(--gold);font-size:clamp(12px,3.2vw,16px)}
-  </style>
+  .title{font-weight:900;color:var(--gold);font-size:clamp(20px,4.5vw,28px);margin-bottom:.25rem}
+  .when{font-weight:600;font-size:clamp(13px,3vw,16px);color:var(--ivory)}
+  .where{font-weight:700;color:#f6d26a;margin-top:.4vmin;font-size:clamp(12px,2.8vw,15px)}
+
+  .invite{font-weight:700;margin-top:0.6rem}
+  .assoc-card{display:flex;align-items:center;justify-content:center;gap:1vmin;background: linear-gradient(90deg, rgba(230,184,35,0.12), rgba(255,250,245,0.02));border:2px solid rgba(255,215,0,.4);border-radius:10px;padding:0.8vmin 1.4vmin;box-shadow:0 8px 18px rgba(0,0,0,0.18)}
+  .bottom-logo{width:42px;max-width:16vw;height:auto;border-radius:6px;object-fit:contain;background:rgba(255,255,255,.05);padding:3px}
+  .assoc-text{font-weight:800;color:var(--gold);font-size:clamp(12px,3.2vw,16px)}
+</style>
 </head>
 <body>
   <div class="stage">
     <div class="inner">
-      <!-- Top loco image -->
       <img class="top-image" src="placeholder-loco.jpg" alt="WAP7 loco decorated with flowers">
 
-      <!-- Heading -->
       <div class="heading">
         <div class="heading-line one">Ayudha Pooja</div>
         <div class="heading-line two">&amp;</div>
         <div class="heading-line three">Shri Sathya Narayana Pooja</div>
       </div>
 
-      <!-- Date pill -->
       <div class="date-pill-wrap">
         <div class="date-pill">
+          <div class="glow"></div>
           <div class="shine"></div>
           <div class="date-line1">01 October 2025</div>
           <div class="date-line2">Wednesday</div>
         </div>
       </div>
 
-      <!-- Stylish Cards with highlighted headers -->
+      <!-- cards -->
       <div class="card">
-        <div class="card-header">
-          Pooja in front of<br>10104 Mandovi Express
-          <div class="shine"></div>
-        </div>
-        <div class="card-body">
-          <div class="when">08:00 am onwards</div>
-        </div>
+        <div class="title">Pooja in front of</div>
+        <div class="title">10104 Mandovi Express</div>
+        <div class="when">08:00 am onwards</div>
       </div>
 
       <div class="card">
-        <div class="card-header">
-          Shri Sathya Narayana Pooja
-          <div class="shine"></div>
-        </div>
-        <div class="card-body">
-          <div class="when">10:00 am onwards</div>
-          <div class="where">Combined Crew Lobby, Madgaon</div>
-        </div>
+        <div class="title">Shri Sathya Narayana Pooja</div>
+        <div class="when">10:00 am onwards</div>
+        <div class="where">Combined Crew Lobby, Madgaon</div>
       </div>
 
       <div class="card">
-        <div class="card-header">
-          Maha Prasad
-          <div class="shine"></div>
-        </div>
-        <div class="card-body">
-          <div class="when">01:00 pm onwards</div>
-          <div class="where">Community Hall, Madgaon</div>
-        </div>
+        <div class="title">Maha Prasad</div>
+        <div class="when">01:00 pm onwards</div>
+        <div class="where">Community Hall, Madgaon</div>
       </div>
 
-      <div class="invite">
-        All are Cordially Invited to this Auspicious Occasion and receive the Blessings
-      </div>
+      <div class="invite">All are Cordially Invited to this Auspicious Occasion and receive the Blessings</div>
     </div>
 
-    <!-- Bottom association card -->
     <div class="assoc-card">
       <img class="bottom-logo" src="placeholder-konkan-logo.png" alt="Konkan Railway logo">
       <div class="assoc-text">RUNNING STAFF WELFARE COMMITTEE, MADGAON</div>
