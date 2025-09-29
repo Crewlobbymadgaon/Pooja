@@ -1,243 +1,90 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Small thumbnail + concise description -->
-<meta property="og:title" content="Ayudha Pooja & Sathya Narayana Pooja - Invitation ">
-<meta property="og:description" content="Ayudha Pooja & Shri Sathya Narayana Pooja — 01 Oct 2025, Combined Crew Lobby, Madgaon. All welcome.">
-<meta property="og:image" content="https://crewlobbymadgaon.github.io/Pooja/placeholder-loco-300.jpg">
-<meta property="og:image:secure_url" content="https://crewlobbymadgaon.github.io/Pooja/placeholder-loco-300.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="300">
-<meta property="og:image:height" content="300">
-<meta property="og:url" content="https://crewlobbymadgaon.github.io/Pooja/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Running Staff Welfare Committee, Madgaon">
-
-<!-- Twitter Card: small summary -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ayudha Pooja & Sathya Narayana Pooja - Invitation">
-<meta name="twitter:description" content="Ayudha Pooja & Shri Sathya Narayana Pooja — 01 Oct 2025, Combined Crew Lobby, Madgaon. All welcome.">
-<meta name="twitter:image" content="https://crewlobbymadgaon.github.io/Pooja/placeholder-loco-300.jpg">
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ayudha Pooja Invitation</title>
-<style>
-  :root{
-    --bg:#4d1600;
-    --gold:#e6b823;
-    --gold-2:#f6d26a;
-    --accent:#c98f10;
-    --ivory:#fffaf5;
-
-    --heading-dur:7s;
-    --heading-stagger:1s;
-    --heading-init-delay:.18s;
-    --card-dur:4s;
-    --card-stagger:1.2s;
-    --image-dur:4s;
-
-    /* new: assoc card background */
-    --assoc-bg: linear-gradient(90deg, rgba(230,184,35,0.12), rgba(255,250,245,0.02));
-    --assoc-border: rgba(255,215,0,.4);
-  }
-
-  html,body{
-    margin:0;
-    height:100%;
-    background:linear-gradient(180deg,var(--bg) 0%, #491600 100%);
-    font-family:"Segoe UI",Roboto,sans-serif;
-    color:var(--ivory);
-  }
-
-  /* Mandala background */
-  svg.mandala{
-    position:fixed;
-    top:12%;
-    left:50%;
-    transform:translate(-50%,-12%);
-    width:120vmin;
-    height:120vmin;
-    opacity:.1;
-    z-index:0;
-    pointer-events:none;
-  }
-
-  .stage{position:relative;z-index:2;width:100%;overflow-y:auto;}
-  .inner{
-    max-width:1100px;
-    width:100%;
-    margin:0 auto;
-    text-align:center;
-    padding:2vmin;
-    /* new: add top space so heading/cards aren't glued to top */
-    padding-top:6vmin;
-  }
-
-  /* Top image */
-  .top-image{
-    width:120px;
-    max-width:30vw;
-    margin:2.4vmin auto 1.4vmin; /* increased top gap */
-    border-radius:10px;
-    display:block;
-    box-shadow:0 8px 24px rgba(0,0,0,.5);
-    opacity:0;
-    transform:translateY(-60px);
-    animation:imageDown var(--image-dur) ease-out forwards;
-    animation-delay:.3s;
-  }
-  @keyframes imageDown{to{opacity:1;transform:translateY(0)}}
-
-  /* Heading */
-  .heading{display:flex;flex-direction:column;gap:.4vmin;align-items:center;margin-bottom:1.6vmin;}
-  .heading-line{
-    font-weight:900;
-    color:var(--gold);
-    text-shadow:0 6px 0 rgba(0,0,0,.45);
-    opacity:0;
-    transform:translateY(260px);
-    animation:rise var(--heading-dur) ease-out forwards;
-  }
-  .heading-line.one{font-size:clamp(24px,7.5vw,52px);animation-delay:calc(var(--heading-init-delay)+var(--heading-stagger)*0);}
-  .heading-line.two{font-size:clamp(22px,6.5vw,44px);color:var(--gold-2);animation-delay:calc(var(--heading-init-delay)+var(--heading-stagger)*1);}
-  .heading-line.three{font-size:clamp(22px,7vw,50px);animation-delay:calc(var(--heading-init-delay)+var(--heading-stagger)*2);}
-  @keyframes rise{to{opacity:1;transform:translateY(0)}}
-
-  /* Cards */
-  .card,
-  .invite,
-  .assoc-card {
-    margin:2.4vmin auto;   /* equal vertical spacing at final position */
-    max-width:700px;
-  }
-  .card{
-    background:rgba(0,0,0,.05);
-    border:1px solid rgba(255,215,0,.12);
-    border-radius:10px;
-    padding:1.6vmin 2vmin;
-    box-shadow:0 12px 28px rgba(0,0,0,.4);
-    opacity:0;
-    transform:translateY(100px);
-    animation:cardRise var(--card-dur) ease-out forwards;
-    /* made top padding relative and consistent */
-    padding-top: 10px;
-  }
-  .card.large{max-width:740px;}
-  @keyframes cardRise{to{opacity:1;transform:translateY(0)}}
-  .title{font-weight:900;color:var(--gold);font-size:clamp(18px,4vw,26px);}
-  .when{font-weight:700;font-size:clamp(16px,3.6vw,20px);margin-top:.4vmin;}
-  .where{font-weight:800;color:var(--accent);margin-top:.6vmin;
-  padding-top: 10px;
-  }
-
-  /* Invite */
-  .invite{
-    font-weight:700;
-    opacity:0;
-    transform:translateY(80px);
-    animation:cardRise 4s ease-out forwards;
-    text-align:center;
-    /* increased top padding so invite element sits further away from card above */
-    padding-top:20px;
-  }
-
-  /* Association card */
-  .assoc-card{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:1vmin;
-    /* changed so it's never pure-black: warm golden translucent */
-    background: var(--assoc-bg);
-    border:2px solid var(--assoc-border);
-    border-radius:10px;
-    padding:0.8vmin 1.4vmin;
-    opacity:0;
-    transform:translateY(80px);
-    animation:cardRise var(--card-dur) ease-out forwards;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-  }
-  .bottom-logo{
-    width:42px;max-width:16vw;height:auto;border-radius:6px;object-fit:contain;
-    background:rgba(255,255,255,.05);
-    padding:3px;
-  }
-  .assoc-text{font-weight:800;color:var(--gold);font-size:clamp(12px,3.2vw,16px);}
-
-  /* Mobile spacing adjustments */
-  @media(max-width:640px){
-    .card,
-    .invite{margin:3vmin auto;}  /* bigger gap for small screens */
-
-    .assoc-card{
-      position:fixed;
-      bottom:0;
-      left:0;
-      right:0;
-      width:100%;
-      max-width:none;
-      border-radius:0;
-      border-top:2px solid rgba(255,215,0,.5);
-      /* slightly stronger golden translucent on mobile for contrast */
-      background: linear-gradient(90deg, rgba(230,184,35,0.18), rgba(255,250,245,0.03));
-      padding:1vmin;
-      margin:0; /* no margin since it's fixed */
-      z-index:10;
-      box-shadow: 0 -8px 18px rgba(0,0,0,0.20);
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ayudha Pooja Invitation — Combined Crew Lobby, Madgaon</title>
+  <style>
+    :root{
+      --bg:#4d1600;
+      --gold:#e6b823;
+      --gold-2:#f6d26a;
+      --ivory:#fffaf5;
     }
 
-    .inner{padding-bottom:85px;} /* keeps invite just above sticky welfare card */
-  }
-</style>
+    html,body{margin:0;height:100%;background:linear-gradient(180deg,var(--bg) 0%, #491600 100%);font-family:"Segoe UI",Roboto,sans-serif;color:var(--ivory)}
+
+    .stage{position:relative;z-index:2;width:100%;min-height:100vh}
+    .inner{max-width:1100px;margin:0 auto;text-align:center;padding:6vmin 2vmin 4vmin}
+
+    .top-image{width:120px;max-width:30vw;margin:2.4vmin auto 1.4vmin;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+
+    .heading{display:flex;flex-direction:column;gap:.4vmin;align-items:center;margin-bottom:1.2vmin}
+    .heading-line{font-weight:900;color:var(--gold);text-shadow:0 6px 0 rgba(0,0,0,.45)}
+    .heading-line.one{font-size:clamp(24px,7.5vw,52px)}
+    .heading-line.two{font-size:clamp(20px,6.5vw,44px);color:var(--gold-2)}
+    .heading-line.three{font-size:clamp(22px,7vw,50px)}
+
+    /* ---------- DATE PILL with shine ---------- */
+    .date-pill-wrap{display:flex;justify-content:center;margin:1.0vmin auto 1.8vmin;perspective:900px}
+    .date-pill{
+      position:relative;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:.44rem 1.05rem;
+      border-radius:999px;min-width:160px;
+      background: linear-gradient(180deg, #ffd873 0%, #e6b823 35%, #d3a917 70%, #b28410 100%);
+      color:#3a1900;font-weight:900;line-height:1.2;text-align:center;
+      box-shadow:0 10px 22px rgba(0,0,0,0.55);
+      overflow:hidden;
+    }
+    .date-pill::before{content:"";position:absolute;left:6px;right:6px;top:6px;bottom:6px;border-radius:999px;box-shadow:inset 0 6px 10px rgba(255,255,255,0.12), inset 0 -10px 18px rgba(0,0,0,0.22)}
+    .date-pill .shine{position:absolute;top:-40%;left:-50%;width:40%;height:180%;transform:skewX(-20deg) rotate(10deg);background:linear-gradient(90deg,transparent,var(--ivory),transparent);filter:blur(8px);animation:sweep 2200ms linear infinite}
+    @keyframes sweep{0%{left:-50%;opacity:0}10%{opacity:.9}50%{left:110%;opacity:.9}100%{left:120%;opacity:0}}
+    .date-line1{font-size:clamp(14px,3.6vw,18px)}
+    .date-line2{font-size:clamp(12px,3.2vw,15px);margin-top:4px}
+
+    /* ---------- STYLISH CARDS ---------- */
+    .card{
+      background:linear-gradient(145deg, rgba(0,0,0,0.3), rgba(255,215,0,0.06));
+      border:2px solid rgba(230,184,35,0.5);
+      border-radius:16px;
+      margin:2vmin auto;
+      max-width:700px;
+      box-shadow:0 8px 22px rgba(0,0,0,0.45);
+      overflow:hidden;
+      transition:transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+    }
+    .card:hover{transform:translateY(-6px) scale(1.02);border-color:var(--gold);box-shadow:0 12px 32px rgba(230,184,35,0.3),0 8px 20px rgba(0,0,0,0.55)}
+
+    /* Header ribbon inside card */
+    .card-header{
+      background:linear-gradient(90deg,#e6b823,#f6d26a,#e6b823);
+      padding:0.6rem;
+      font-weight:900;
+      font-size:clamp(18px,4vw,26px);
+      color:#3a1900;
+      position:relative;
+      overflow:hidden;
+    }
+    .card-header .shine{
+      position:absolute;top:0;left:-50%;width:40%;height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);
+      animation:sweepTitle 3000ms linear infinite;
+    }
+    @keyframes sweepTitle{0%{left:-50%}50%{left:110%}100%{left:110%}}
+
+    .card-body{padding:1rem}
+    .when{font-weight:700;font-size:clamp(16px,3.6vw,20px);color:var(--ivory)}
+    .where{font-weight:800;color:var(--gold-2);margin-top:.4rem}
+
+    .invite{font-weight:700;margin-top:0.6rem}
+
+    .assoc-card{display:flex;align-items:center;justify-content:center;gap:1vmin;background: linear-gradient(90deg, rgba(230,184,35,0.12), rgba(255,250,245,0.02));border:2px solid rgba(255,215,0,.4);border-radius:10px;padding:0.8vmin 1.4vmin;box-shadow:0 8px 18px rgba(0,0,0,0.18)}
+    .bottom-logo{width:42px;max-width:16vw;height:auto;border-radius:6px;object-fit:contain;background:rgba(255,255,255,.05);padding:3px}
+    .assoc-text{font-weight:800;color:var(--gold);font-size:clamp(12px,3.2vw,16px)}
+  </style>
 </head>
 <body>
-<svg class="mandala" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
-  <!-- Base concentric circles -->
-  <circle cx="500" cy="500" r="420" fill="none" stroke="#e6b823" stroke-width="2" opacity="0.15"/>
-  <circle cx="500" cy="500" r="340" fill="none" stroke="#f6d26a" stroke-width="2" opacity="0.12"/>
-  <circle cx="500" cy="500" r="260" fill="none" stroke="#e6b823" stroke-width="2" opacity="0.12"/>
-  <circle cx="500" cy="500" r="180" fill="none" stroke="#f6d26a" stroke-width="2" opacity="0.12"/>
-  <circle cx="500" cy="500" r="100" fill="none" stroke="#e6b823" stroke-width="2" opacity="0.12"/>
-
-  <defs>
-    <!-- large outer petal -->
-    <ellipse id="petal" cx="500" cy="140" rx="200" ry="60" fill="none" stroke="#e6b823" stroke-width="2.5"/>
-    <!-- mid petal -->
-    <ellipse id="petal-mid" cx="500" cy="260" rx="120" ry="40" fill="none" stroke="#f6d26a" stroke-width="2"/>
-  </defs>
-
-  <!-- Outer ring of 12 petals -->
-  <g opacity="0.55">
-    <use href="#petal" transform="rotate(0 500 500)"/>
-    <use href="#petal" transform="rotate(30 500 500)"/>
-    <use href="#petal" transform="rotate(60 500 500)"/>
-    <use href="#petal" transform="rotate(90 500 500)"/>
-    <use href="#petal" transform="rotate(120 500 500)"/>
-    <use href="#petal" transform="rotate(150 500 500)"/>
-    <use href="#petal" transform="rotate(180 500 500)"/>
-    <use href="#petal" transform="rotate(210 500 500)"/>
-    <use href="#petal" transform="rotate(240 500 500)"/>
-    <use href="#petal" transform="rotate(270 500 500)"/>
-    <use href="#petal" transform="rotate(300 500 500)"/>
-    <use href="#petal" transform="rotate(330 500 500)"/>
-  </g>
-
-  <!-- Mid ring of 12 smaller petals -->
-  <g opacity="0.45">
-    <use href="#petal-mid" transform="rotate(15 500 500)"/>
-    <use href="#petal-mid" transform="rotate(45 500 500)"/>
-    <use href="#petal-mid" transform="rotate(75 500 500)"/>
-    <use href="#petal-mid" transform="rotate(105 500 500)"/>
-    <use href="#petal-mid" transform="rotate(135 500 500)"/>
-    <use href="#petal-mid" transform="rotate(165 500 500)"/>
-    <use href="#petal-mid" transform="rotate(195 500 500)"/>
-    <use href="#petal-mid" transform="rotate(225 500 500)"/>
-    <use href="#petal-mid" transform="rotate(255 500 500)"/>
-    <use href="#petal-mid" transform="rotate(285 500 500)"/>
-    <use href="#petal-mid" transform="rotate(315 500 500)"/>
-    <use href="#petal-mid" transform="rotate(345 500 500)"/>
-  </g>
-</svg>
-
   <div class="stage">
     <div class="inner">
       <!-- Top loco image -->
@@ -250,35 +97,58 @@
         <div class="heading-line three">Shri Sathya Narayana Pooja</div>
       </div>
 
-      <!-- Cards -->
-      <div class="card large" style="animation-delay:8s">
-        <div class="title">Pooja in front of</div>
-        <div class="title">10104 Mandovi Express</div>
-        <div class="when">01 October 2025, 08:00 am onwards</div>
+      <!-- Date pill -->
+      <div class="date-pill-wrap">
+        <div class="date-pill">
+          <div class="shine"></div>
+          <div class="date-line1">01 October 2025</div>
+          <div class="date-line2">Wednesday</div>
+        </div>
       </div>
 
-      <div class="card" style="animation-delay:10s">
-        <div class="title">Shri Sathya Narayana Pooja</div>
-        <div class="when">01 October 2025, 10:00 am onwards</div>
-        <div class="where">Combined Crew Lobby, Madgaon</div>
+      <!-- Stylish Cards with highlighted headers -->
+      <div class="card">
+        <div class="card-header">
+          Pooja in front of<br>10104 Mandovi Express
+          <div class="shine"></div>
+        </div>
+        <div class="card-body">
+          <div class="when">08:00 am onwards</div>
+        </div>
       </div>
 
-      <div class="card" style="animation-delay:11.2s">
-        <div class="title">Maha Prasad</div>
-        <div class="when">01 October 2025, 01:00 pm onwards</div>
-        <div class="where">Community Hall, Madgaon</div>
+      <div class="card">
+        <div class="card-header">
+          Shri Sathya Narayana Pooja
+          <div class="shine"></div>
+        </div>
+        <div class="card-body">
+          <div class="when">10:00 am onwards</div>
+          <div class="where">Combined Crew Lobby, Madgaon</div>
+        </div>
       </div>
 
-      <div class="invite" style="animation-delay:12.5s">
+      <div class="card">
+        <div class="card-header">
+          Maha Prasad
+          <div class="shine"></div>
+        </div>
+        <div class="card-body">
+          <div class="when">01:00 pm onwards</div>
+          <div class="where">Community Hall, Madgaon</div>
+        </div>
+      </div>
+
+      <div class="invite">
         All are Cordially Invited to this Auspicious Occasion and receive the Blessings
       </div>
     </div>
 
-    <!-- Bottom association card with logo -->
-    <div class="assoc-card" style="animation-delay:13.5s">
+    <!-- Bottom association card -->
+    <div class="assoc-card">
       <img class="bottom-logo" src="placeholder-konkan-logo.png" alt="Konkan Railway logo">
       <div class="assoc-text">RUNNING STAFF WELFARE COMMITTEE, MADGAON</div>
     </div>
   </div>
 </body>
-    </html>
+</html>
